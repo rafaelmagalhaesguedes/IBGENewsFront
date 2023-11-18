@@ -10,7 +10,7 @@ import {
 } from './Styles';
 
 function NewsList() {
-  const { news } = useContext(NewsContext);
+  const { filteredNews } = useContext(NewsContext);
   const [itemsToShow, setItemsToShow] = useState(10);
 
   const loadMore = () => {
@@ -19,7 +19,7 @@ function NewsList() {
 
   return (
     <NewsListItem>
-      {news && news.slice(1, itemsToShow).map((item) => {
+      {filteredNews && filteredNews.slice(0, itemsToShow).map((item) => {
         const images = JSON.parse(item.imagens);
         return (
           <NewsItemsCard key={ item.id }>
@@ -35,7 +35,7 @@ function NewsList() {
         );
       })}
       <LoadMore>
-        {itemsToShow < news.length && (
+        {itemsToShow < filteredNews.length && (
           <ButtonLoadMore onClick={ loadMore }>Mais notícias</ButtonLoadMore>
         ) }
       </LoadMore>
