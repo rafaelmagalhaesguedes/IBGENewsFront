@@ -5,7 +5,7 @@ export const LatestNewsItem = styled.div`
   flex-direction: row;
   width: 100%;
   gap: 2rem;
-  margin: 8rem 0 4rem 0;
+  margin: 7rem 0 4rem 0;
 `;
 
 export const LatestNewsImage = styled.div`

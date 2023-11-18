@@ -3,8 +3,8 @@ import { NewsContext } from '../../context/NewsContext';
 import { LatestNewsImage, LatestNewsInfos, LatestNewsItem } from './Styles';
 
 function LatestNews() {
-  const { news } = useContext(NewsContext);
-  const item = news && news[0];
+  const { dataNews } = useContext(NewsContext);
+  const item = dataNews && dataNews[0];
   const images = item && JSON.parse(item.imagens);
 
   return (
