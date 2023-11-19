@@ -5,6 +5,19 @@ export const LatestNewsItem = styled.div`
   flex-direction: row;
   width: 100%;
   margin: 9rem 0 4rem 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin: 1em 0 2rem 0;
+    transition: 0.3s;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    flex-direction: column-reverse;
+    gap: 1rem;
+    margin: 8em 0 2rem 0;
+    transition: 0.3s;
+  }
 `;
 
 export const LatestNewsImage = styled.div`
@@ -14,6 +27,24 @@ export const LatestNewsImage = styled.div`
     width: 100%;
     height: auto;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    transition: 0.3s;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 100%;
+    transition: 0.3s;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 `;
 
 export const LatestNewsInfos = styled.div`
@@ -21,6 +52,18 @@ export const LatestNewsInfos = styled.div`
   background-color: #fff;
   padding: 1rem 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    flex-direction: row;
+    transition: 0.3s;
+    width: 100%;
+  }
 
   h2, p {
     padding-bottom: 20px;
