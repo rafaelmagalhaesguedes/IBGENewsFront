@@ -7,4 +7,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: Gabarito , sans-serif;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;

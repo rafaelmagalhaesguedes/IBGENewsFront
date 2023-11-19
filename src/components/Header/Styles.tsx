@@ -5,6 +5,7 @@ export const ContainerHeader = styled.header`
   display: flex;
   width: 100%;
   background-color: #333;
+  border: none;
   align-items: center;
   justify-content: space-around;
   fixed: top;
@@ -18,18 +19,21 @@ export const WrapperHeader = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  margin: 0;
+  padding: 0;
 `;
 
 export const LogoHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+  border: none;
 `;
 
 export const Logo = styled.img`
-  width: 40px;
+  width: 100px;
   height: 100%;
+  cursor: pointer;
 `;
 
 export const TitleHeader = styled.h1`
@@ -59,7 +63,7 @@ export const IconSearch = styled(FaSearch)`
     width: 30px;
     height: 30px;
     color: #fff;
-    background-color: green;
+    background-color: #CD0404;
     cursor: pointer;
     padding: 7px;
 `;

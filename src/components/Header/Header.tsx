@@ -1,12 +1,11 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { NewsContext } from '../../context/NewsContext';
-import iconLogo from '../../assets/logo.svg';
+import iconLogo from '../../assets/logoNews.png';
 import {
   ContainerHeader,
   IconSearch,
   InputSearch,
-  Logo, LogoHeader, NavbarSearch, TitleHeader, WrapperHeader } from './Styles';
+  Logo, NavbarSearch, WrapperHeader } from './Styles';
 
 function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivElement> }) {
   const { filterByString } = useContext(NewsContext);
@@ -29,17 +28,12 @@ function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivEleme
   return (
     <ContainerHeader>
       <WrapperHeader>
-        <LogoHeader>
-          <Link to="/">
-            <Logo src={ iconLogo } alt="Logo" />
-          </Link>
-          <TitleHeader>Trybe News</TitleHeader>
-        </LogoHeader>
+        <Logo src={ iconLogo } alt="Logo" />
         <NavbarSearch>
           <InputSearch
             type="text"
             value={ search }
-            placeholder="Search"
+            placeholder="Buscar notícia"
             onChange={ (e) => setSearch(e.target.value) }
             onKeyPress={ handleKeyPress }
           />

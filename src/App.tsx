@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import Header from './components/Header/Header';
-import NewsList from './components/NewsList/NewsList';
 import { AppContainer, Main } from './styles/AppStyles';
 import LatestNews from './components/LatestNews/LatestNews';
 import FilterNews from './components/FilterNews/FilterNews';
+import CardNews from './components/CardNews/CardNews';
 
 function App() {
   const filterNewsRef = useRef<HTMLDivElement | null>(null);
@@ -14,7 +14,7 @@ function App() {
       <Main>
         <LatestNews />
         <FilterNews ref={ filterNewsRef } />
-        <NewsList />
+        <CardNews />
       </Main>
     </AppContainer>
   );

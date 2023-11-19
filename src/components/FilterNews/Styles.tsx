@@ -7,6 +7,7 @@ export const FilterNewsContainer = styled.div`
   background-color: #FFFFFFD9;
   height: 3rem;
   margin-top: 2rem 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 `;
 
 export const FilterNewsButton = styled.div`
