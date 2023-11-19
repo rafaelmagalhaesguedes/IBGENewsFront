@@ -4,6 +4,7 @@ import { AppContainer, Main } from './styles/AppStyles';
 import LatestNews from './components/LatestNews/LatestNews';
 import FilterNews from './components/FilterNews/FilterNews';
 import CardNews from './components/CardNews/CardNews';
+import BackToTopButton from './components/BackToTopButton/BackToTopButton';
 
 function App() {
   const filterNewsRef = useRef<HTMLDivElement | null>(null);
@@ -15,6 +16,7 @@ function App() {
         <LatestNews />
         <FilterNews ref={ filterNewsRef } />
         <CardNews />
+        <BackToTopButton />
       </Main>
     </AppContainer>
   );
