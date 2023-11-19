@@ -8,29 +8,45 @@ export const FilterNewsContainer = styled.div`
   height: 3rem;
   margin-top: 2rem 0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    height: auto;
+  }
 `;
 
 export const FilterNewsButton = styled.nav`
-  button {
-    background-color: #FFFFFFD9;
-    border: none;
-    color: #000;
-    font-size: 0.9rem;
-    font-weight: 700;
-    height: 3rem;
-    padding: 0 1rem;
-    transition: all 0.2s ease-in-out;
-    width: 10rem;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+  }
+`;
 
-    &:hover {
-      background-color: #f00;
-      color: #fff;
-      cursor: pointer;
-    }
+export const ButtonFilter = styled.button`
+  background-color: #FFFFFFD9;
+  border: none;
+  color: #000;
+  font-size: 0.9rem;
+  font-weight: 700;
+  height: 3rem;
+  padding: 0 1rem;
+  transition: all 0.2s ease-in-out;
+  width: 10rem;
 
-    &.active {
-      background-color: #f00;
-      color: #fff;
-    }
+  &:hover {
+    background-color: #f00;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  &.active {
+    background-color: #f00;
+    color: #fff;
   }
 `;

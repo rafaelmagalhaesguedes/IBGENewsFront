@@ -1,6 +1,6 @@
 import { forwardRef, useContext, useState } from 'react';
 import { NewsContext } from '../../context/NewsContext';
-import { FilterNewsButton, FilterNewsContainer } from './Styles';
+import { ButtonFilter, FilterNewsButton, FilterNewsContainer } from './Styles';
 
 const FilterNews = forwardRef<HTMLDivElement>((_, ref) => {
   const {
@@ -21,30 +21,30 @@ const FilterNews = forwardRef<HTMLDivElement>((_, ref) => {
     <nav>
       <FilterNewsContainer ref={ ref }>
         <FilterNewsButton>
-          <button
+          <ButtonFilter
             onClick={ () => handleClick(filterByRecent, 'recent') }
             className={ activeButton === 'recent' ? 'active' : '' }
           >
             Mais recentes
-          </button>
-          <button
+          </ButtonFilter>
+          <ButtonFilter
             onClick={ () => handleClick(filterByRelease, 'release') }
             className={ activeButton === 'release' ? 'active' : '' }
           >
             Release
-          </button>
-          <button
+          </ButtonFilter>
+          <ButtonFilter
             onClick={ () => handleClick(filterByNoticia, 'noticia') }
             className={ activeButton === 'noticia' ? 'active' : '' }
           >
             Notícia
-          </button>
-          <button
+          </ButtonFilter>
+          <ButtonFilter
             onClick={ () => handleClick(filterByFavorites, 'favorites') }
             className={ activeButton === 'favorites' ? 'active' : '' }
           >
             Favoritas
-          </button>
+          </ButtonFilter>
         </FilterNewsButton>
       </FilterNewsContainer>
     </nav>
