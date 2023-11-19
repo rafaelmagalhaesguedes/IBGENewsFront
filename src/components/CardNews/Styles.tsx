@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const NewsListItem = styled.div`
+export const CardNewsContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -30,6 +30,10 @@ export const NewsListItem = styled.div`
     line-height: 1.1rem;
     font-weight: normal;
     margin-bottom: 1rem;
+
+    &:hover {
+      color: red;
+    }
   }
 `;
 
@@ -59,11 +63,11 @@ export const NewsItemsInfos = styled.div`
   align-items: center;
 `;
 
-export const ButtonFavorite = styled.button`
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  margin-top: 30px;
+export const ButtonFavorite = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
 `;
 
 export const LoadMore = styled.div`

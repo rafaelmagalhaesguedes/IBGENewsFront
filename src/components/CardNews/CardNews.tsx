@@ -1,11 +1,10 @@
 /* eslint-disable react/jsx-max-depth */
 import { useContext, useState } from 'react';
-import { FaRegHeart } from 'react-icons/fa';
-import { formatDistanceToNow, parse } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
 import { NewsContext } from '../../context/NewsContext';
+import { formatDate } from '../../helpers/formatDate';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import {
-  NewsListItem,
+  CardNewsContainer,
   NewsItemsCard,
   NewsItemsImage,
   NewsItemsInfos,
@@ -23,13 +22,8 @@ function CardNews() {
     setItemsToShow((prev) => prev + 10);
   };
 
-  const calculateDaysAgo = (dateString: string) => {
-    const date = parse(dateString, 'dd/MM/yyyy HH:mm:ss', new Date());
-    return formatDistanceToNow(date, { addSuffix: true, locale: ptBR });
-  };
-
   return (
-    <NewsListItem>
+    <CardNewsContainer>
       {filteredNews && filteredNews.slice(0, itemsToShow).map((item) => {
         const images = JSON.parse(item.imagens);
         return (
@@ -42,13 +36,16 @@ function CardNews() {
             <p>{item.introducao}</p>
             <NewsItemsInfos>
               <span>
-                <span>{calculateDaysAgo(item.data_publicacao)}</span>
+                <span>
+                  {formatDate(item.data_publicacao)}
+                  {' '}
+                  atrás
+                </span>
               </span>
               <LinkNews>Notícia completa</LinkNews>
             </NewsItemsInfos>
-
             <ButtonFavorite>
-              <FaRegHeart size={ 25 } />
+              <FavoriteButton item={ item } />
             </ButtonFavorite>
           </NewsItemsCard>
         );
@@ -58,7 +55,7 @@ function CardNews() {
           <ButtonLoadMore onClick={ loadMore }>Mais notícias</ButtonLoadMore>
         ) }
       </LoadMore>
-    </NewsListItem>
+    </CardNewsContainer>
   );
 }
 
