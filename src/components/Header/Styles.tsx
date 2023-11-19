@@ -12,6 +12,13 @@ export const ContainerHeader = styled.header`
   fixed: top;
   position: fixed;
   top: 0;
+
+  @media (max-width: 768px) {
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
 `;
 
 export const WrapperHeader = styled.div`
@@ -22,6 +29,14 @@ export const WrapperHeader = styled.div`
   align-items: center;
   margin: 0;
   padding: 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
 `;
 
 export const LogoHeader = styled.div`
@@ -35,6 +50,11 @@ export const Logo = styled.img`
   width: 100px;
   height: 100%;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 100%;
+  }
 `;
 
 export const TitleHeader = styled.h1`
@@ -57,6 +77,10 @@ export const InputSearch = styled.input`
 
   &:focus {
     outline: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
