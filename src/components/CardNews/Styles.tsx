@@ -35,6 +35,18 @@ export const CardNewsContainer = styled.div`
       color: red;
     }
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    transition: 0.3s;
+    align-items: center;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    flex-direction: column;
+    transition: 0.3s;
+    width: 100%;
+  }
 `;
 
 export const NewsItemsCard = styled.div`
@@ -49,16 +61,48 @@ export const NewsItemsCard = styled.div`
   background-color: #fff;
   padding: 1rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    flex-direction: column;
+    transition: 0.3s;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1224px) {
+    flex-direction: column;
+    transition: 0.3s;
+    width: 45%;
+    gap: 1rem;
+    height: auto;
+  }
 `;
 
 export const NewsItemsImage = styled.img`
+  width: 100%;
+  height: 220px;
+
+  @media (max-width: 768px) {
+    height: auto;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    flex-direction: column;
+    transition: 0.3s;
     width: 100%;
-    height: 220px;
+    height: auto;
+  }
 `;
 
 export const NewsItemsInfos = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
   align-items: center;
 `;
@@ -93,5 +137,9 @@ export const ButtonLoadMore = styled.button`
   
   &:hover {
     background-color: #000;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
