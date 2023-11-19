@@ -2,8 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,700;0,800;0,1000;1,200;1,400&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600&family=Nunito:ital,wght@0,300;0,400;0,500;0,700;0,800;0,1000;1,200;1,400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600&family=Nunito:ital,wght@0,300;0,400;0,500;0,700;0,800;0,1000;1,200;1,400&family=Poppins:wght@300;400;600;700&display=swap');
   
   * {
     margin: 0;
