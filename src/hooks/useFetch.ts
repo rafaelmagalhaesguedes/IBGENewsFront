@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NewsType } from '../types/types';
-import { fetchWithCache } from '../helpers/cashApi';
+import { fetchWithCache } from '../helpers/cacheApi';
 
 function useFetch() {
   const [dataNews, setDataNews] = useState<NewsType[]>([]);
