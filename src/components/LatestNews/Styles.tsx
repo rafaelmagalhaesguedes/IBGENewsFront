@@ -4,7 +4,7 @@ export const LatestNewsItem = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin: 7rem 0 4rem 0;
+  margin: 9rem 0 4rem 0;
 `;
 
 export const LatestNewsImage = styled.div`
@@ -22,7 +22,7 @@ export const LatestNewsInfos = styled.div`
   padding: 1rem 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-  h1, h2, p {
+  h2, p {
     padding-bottom: 20px;
     text-align: justify;
     font-weight: bold;
@@ -60,7 +60,6 @@ export const LatestNewsInfos = styled.div`
 export const LatestNewsTitle = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
 `;
 
 export const LatestNewsSocial = styled.div`

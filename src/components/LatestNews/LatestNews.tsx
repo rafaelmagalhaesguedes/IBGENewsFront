@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-max-depth */
 import { useContext } from 'react';
-import { FaWhatsapp, FaRegHeart,
-  FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { NewsContext } from '../../context/NewsContext';
 import {
@@ -13,6 +12,7 @@ import {
   LinkNews,
   SocialIcon,
 } from './Styles';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 
 function LatestNews() {
   const { dataNews } = useContext(NewsContext);
@@ -33,8 +33,15 @@ function LatestNews() {
           </LatestNewsImage>
           <LatestNewsInfos>
             <LatestNewsTitle>
-              <h1>Última notícia</h1>
-              <FaRegHeart size={ 20 } />
+              <div>
+                <h1>Última notícia</h1>
+                <p style={ { fontSize: '0.8rem' } }>
+                  { item.data_publicacao }
+                </p>
+              </div>
+              <div>
+                <FavoriteButton item={ item } />
+              </div>
             </LatestNewsTitle>
             <Link to={ item.link }>
               <h2>{item.titulo}</h2>
