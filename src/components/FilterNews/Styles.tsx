@@ -10,7 +10,7 @@ export const FilterNewsContainer = styled.div`
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 `;
 
-export const FilterNewsButton = styled.div`
+export const FilterNewsButton = styled.nav`
   button {
     background-color: #FFFFFFD9;
     border: none;
@@ -23,7 +23,14 @@ export const FilterNewsButton = styled.div`
     width: 10rem;
 
     &:hover {
+      background-color: #f00;
+      color: #fff;
       cursor: pointer;
+    }
+
+    &.active {
+      background-color: #f00;
+      color: #fff;
     }
   }
 `;
