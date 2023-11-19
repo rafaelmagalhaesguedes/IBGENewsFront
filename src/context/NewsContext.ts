@@ -8,6 +8,7 @@ type NewsContextType = {
   filterByNoticia: () => void;
   filterByRelease: () => void;
   filterByRecent: () => void;
+  filterByFavorites: () => void;
 };
 
 export const NewsContext = createContext({} as NewsContextType);

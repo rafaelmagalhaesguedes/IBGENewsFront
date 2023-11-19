@@ -1,5 +1,5 @@
 import { NewsContext } from './NewsContext';
-import useFetchApi from '../hooks/useFetchApi';
+import useFetch from '../hooks/useFetch';
 import useFilterNews from '../hooks/useFilterNews';
 
 type NewsProviderProps = {
@@ -7,15 +7,20 @@ type NewsProviderProps = {
 };
 
 function NewsProvider({ children } : NewsProviderProps) {
-  const { dataNews } = useFetchApi();
+  // Dados da API
+  const { dataNews } = useFetch();
+
+  // Filtros
   const {
     filteredNews,
     filterByString,
     filterByNoticia,
     filterByRelease,
     filterByRecent,
+    filterByFavorites,
   } = useFilterNews(dataNews);
 
+  // Contexto
   const value = {
     dataNews,
     filteredNews,
@@ -23,8 +28,10 @@ function NewsProvider({ children } : NewsProviderProps) {
     filterByNoticia,
     filterByRelease,
     filterByRecent,
+    filterByFavorites,
   };
 
+  // Provider
   return (
     <NewsContext.Provider value={ value }>
       {children}
