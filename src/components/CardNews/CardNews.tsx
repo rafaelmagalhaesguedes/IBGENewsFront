@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import { NewsContext } from '../../context/NewsContext';
 import { formatDate } from '../../helpers/formatDate';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
+import { LinkNews } from '../LatestNews/Styles';
 import {
   CardNewsContainer,
   NewsItemsCard,
@@ -12,7 +13,6 @@ import {
   LoadMore,
   ButtonFavorite,
 } from './Styles';
-import { LinkNews } from '../LatestNews/Styles';
 
 function CardNews() {
   const { filteredNews } = useContext(NewsContext);
@@ -27,7 +27,7 @@ function CardNews() {
       {filteredNews && filteredNews.slice(0, itemsToShow).map((item) => {
         const images = JSON.parse(item.imagens);
         return (
-          <NewsItemsCard key={ item.id }>
+          <NewsItemsCard key={ item.id } data-testid="news-item">
             <NewsItemsImage
               src={ `https://agenciadenoticias.ibge.gov.br/${images.image_intro}` }
               alt={ item.titulo }
@@ -51,9 +51,9 @@ function CardNews() {
         );
       })}
       <LoadMore>
-        {itemsToShow < filteredNews.length && (
+        {filteredNews && itemsToShow < filteredNews.length && (
           <ButtonLoadMore onClick={ loadMore }>Mais notícias</ButtonLoadMore>
-        ) }
+        )}
       </LoadMore>
     </CardNewsContainer>
   );

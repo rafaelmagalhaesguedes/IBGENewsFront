@@ -27,7 +27,7 @@ export const CardNewsContainer = styled.div`
     color: #666;
     font-size: 0.9rem;
     letter-spacing: 1px;
-    line-height: 1.1rem;
+    line-height: 1.3rem;
     font-weight: normal;
     margin-bottom: 1rem;
 
@@ -103,8 +103,18 @@ export const NewsItemsImage = styled.img`
 export const NewsItemsInfos = styled.div`
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    transition: 0.3s;
+    width: 100%;
+    height: auto;
+    jutify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
 `;
 
 export const ButtonFavorite = styled.div`
@@ -112,6 +122,10 @@ export const ButtonFavorite = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+  }
 `;
 
 export const LoadMore = styled.div`
