@@ -12,11 +12,10 @@ function FavoriteButton({ item } : FavoriteButtonProps) {
   const { isFavorited, handleFavoriteClick } = useFavorites(item);
 
   return (
-    <FavButton data-testid="favorite-button" onClick={ handleFavoriteClick }>
+    <FavButton data-testid="favorite-btn" onClick={ handleFavoriteClick }>
       <img
         src={ isFavorited ? favorited : noFavorited }
         alt={ isFavorited ? 'favorited' : 'noFavorited' }
-        data-testid="favorite-btn"
       />
     </FavButton>
   );
