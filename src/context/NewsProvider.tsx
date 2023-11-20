@@ -8,7 +8,7 @@ type NewsProviderProps = {
 
 function NewsProvider({ children } : NewsProviderProps) {
   // Dados da API
-  const { dataNews } = useFetch();
+  const { dataNews, isLoading } = useFetch('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
 
   // Filtros
   const {
@@ -18,22 +18,25 @@ function NewsProvider({ children } : NewsProviderProps) {
     filterByRelease,
     filterByRecent,
     filterByFavorites,
+    filterByOldest,
   } = useFilterNews(dataNews);
 
   // Contexto
-  const value = {
+  const contextValue = {
     dataNews,
+    isLoading,
     filteredNews,
     filterByString,
     filterByNoticia,
     filterByRelease,
     filterByRecent,
     filterByFavorites,
+    filterByOldest,
   };
 
   // Provider
   return (
-    <NewsContext.Provider value={ value }>
+    <NewsContext.Provider value={ contextValue }>
       {children}
     </NewsContext.Provider>
   );
