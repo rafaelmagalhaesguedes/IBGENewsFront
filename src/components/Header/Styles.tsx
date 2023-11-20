@@ -16,7 +16,7 @@ export const ContainerHeader = styled.header`
   @media (max-width: 768px) {
     position: relative;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
   }
 
 `;
@@ -27,23 +27,23 @@ export const WrapperHeader = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0;
-  padding: 0;
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: 90%;
     flex-direction: row;
     gap: 1rem;
     justify-content: space-between;
-    padding: 0 1rem;
   }
 `;
 
 export const LogoHeader = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
   border: none;
+
+  @media (max-width: 768px) {
+    width: 20%;
+  }
 `;
 
 export const Logo = styled.img`
@@ -66,6 +66,14 @@ export const TitleHeader = styled.h1`
 
 export const NavbarSearch = styled.div`
   display: flex;
+
+  @media (max-width: 250px) {
+    display: none;
+  }
+
+  @media (max-width: 390px) {
+    width: 60%;
+  }
 `;
 
 export const InputSearch = styled.input`

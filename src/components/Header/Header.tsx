@@ -1,36 +1,23 @@
-import { useContext, useState } from 'react';
-import { NewsContext } from '../../context/NewsContext';
-import iconLogo from '../../assets/logoNews.png';
+import iconLogo from '../../assets/images/logoNews.png';
+import { useHeader } from '../../hooks/useHeader';
 import {
   ContainerHeader,
   IconSearch,
   InputSearch,
-  Logo, NavbarSearch, WrapperHeader } from './Styles';
+  Logo, LogoHeader, NavbarSearch, WrapperHeader } from './Styles';
 
 function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivElement> }) {
-  const { filterByString } = useContext(NewsContext);
-  const [search, setSearch] = useState('');
-
-  const handleSearch = () => {
-    filterByString(search);
-    setSearch('');
-    if (filterNewsRef.current) {
-      filterNewsRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleKeyPress = (event: any) => {
-    if (event.key === 'Enter') {
-      handleSearch();
-    }
-  };
+  const { search, setSearch, handleSearch, handleKeyPress } = useHeader(filterNewsRef);
 
   return (
     <ContainerHeader>
       <WrapperHeader>
-        <Logo src={ iconLogo } alt="Logo" />
+        <LogoHeader>
+          <Logo data-testid="logo" src={ iconLogo } alt="Logo" />
+        </LogoHeader>
         <NavbarSearch>
           <InputSearch
+            data-testid="search-input"
             type="text"
             value={ search }
             placeholder="Buscar notícia"
@@ -38,6 +25,7 @@ function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivEleme
             onKeyPress={ handleKeyPress }
           />
           <IconSearch
+            data-testid="search-icon"
             onClick={ handleSearch }
           />
         </NavbarSearch>
