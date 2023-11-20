@@ -31,8 +31,8 @@ function BackToTopButton() {
   return (
     <BackToTopSection>
       {isVisible && (
-        <BackToTop onClick={ scrollToTop }>
-          <FaArrowUp />
+        <BackToTop data-testid="button-to-top" onClick={ scrollToTop }>
+          <FaArrowUp size={ 25 } />
         </BackToTop>
       )}
     </BackToTopSection>
