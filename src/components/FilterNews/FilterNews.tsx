@@ -8,11 +8,12 @@ const FilterNews = forwardRef<HTMLDivElement>((_, ref) => {
     filterByRelease,
     filterByNoticia,
     filterByFavorites,
+    filterByOldest,
   } = useContext(NewsContext);
 
   const [activeButton, setActiveButton] = useState('recent');
 
-  const handleClick = (filterFunction: any, buttonName: any) => {
+  const handleClick = (filterFunction: any, buttonName: string) => {
     filterFunction();
     setActiveButton(buttonName);
   };
@@ -44,6 +45,12 @@ const FilterNews = forwardRef<HTMLDivElement>((_, ref) => {
             className={ activeButton === 'favorites' ? 'active' : '' }
           >
             Favoritas
+          </ButtonFilter>
+          <ButtonFilter
+            onClick={ () => handleClick(filterByOldest, 'oldest') }
+            className={ activeButton === 'oldest' ? 'active' : '' }
+          >
+            Mais antigas
           </ButtonFilter>
         </FilterNewsButton>
       </FilterNewsContainer>

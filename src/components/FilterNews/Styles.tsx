@@ -6,10 +6,17 @@ export const FilterNewsContainer = styled.div`
   align-items: center;
   background-color: #FFFFFFD9;
   height: 3rem;
-  margin-top: 2rem 0;
+  margin-top: 2rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 768px) {
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    height: auto;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
     width: 100%;
     flex-wrap: wrap;
     margin-bottom: 2rem;
@@ -19,6 +26,15 @@ export const FilterNewsContainer = styled.div`
 
 export const FilterNewsButton = styled.nav`
   @media (max-width: 768px) {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
     display: flex;
     flex-flow: row wrap;
     width: 100%;
@@ -40,13 +56,13 @@ export const ButtonFilter = styled.button`
   width: 10rem;
 
   &:hover {
-    background-color: #f00;
+    background-color: #e22e2f;
     color: #fff;
     cursor: pointer;
   }
 
   &.active {
-    background-color: #f00;
+    background-color: #e22e2f;
     color: #fff;
   }
 `;

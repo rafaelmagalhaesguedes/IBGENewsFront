@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import moment from 'moment';
 import { NewsType } from '../types/types';
 
 const useFilterNews = (news: NewsType[]) => {
@@ -34,6 +35,19 @@ const useFilterNews = (news: NewsType[]) => {
   const filterByRecent = useCallback(() => {
     const sortedNews = [...news].sort((a, b) => (new Date(b.data_publicacao)
       .getTime() - new Date(a.data_publicacao).getTime()));
+    // Remove first item (most recent)
+    sortedNews.shift();
+    setFilteredNews(sortedNews);
+  }, [news]);
+
+  // Filter by oldest
+  const filterByOldest = useCallback((ascending = true) => {
+    const sortedNews = [...news].sort((a, b) => {
+      // Sort by ascending or descending with moment.js
+      const timeA = moment(a.data_publicacao, 'DD/MM/YYYY HH:mm:ss');
+      const timeB = moment(b.data_publicacao, 'DD/MM/YYYY HH:mm:ss');
+      return ascending ? timeA.diff(timeB) : timeB.diff(timeA);
+    });
     setFilteredNews(sortedNews);
   }, [news]);
 
@@ -65,6 +79,7 @@ const useFilterNews = (news: NewsType[]) => {
     filterByNoticia,
     filterByRelease,
     filterByFavorites,
+    filterByOldest,
   };
 };
 
