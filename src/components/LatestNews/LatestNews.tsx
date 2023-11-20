@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-max-depth */
 import { useContext } from 'react';
-import { FaWhatsapp, FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { FaWhatsapp, FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { formatDate } from '../../helpers/formatDate';
 import { NewsContext } from '../../context/NewsContext';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import {
   LatestNewsImage,
   LatestNewsInfos,
@@ -12,7 +14,6 @@ import {
   LinkNews,
   SocialIcon,
 } from './Styles';
-import FavoriteButton from '../FavoriteButton/FavoriteButton';
 
 function LatestNews() {
   const { dataNews } = useContext(NewsContext);
@@ -33,22 +34,20 @@ function LatestNews() {
           </LatestNewsImage>
           <LatestNewsInfos>
             <LatestNewsTitle>
-              <div>
+              <div className="box-title">
                 <h1>Última notícia</h1>
-                <p style={ { fontSize: '0.8rem' } }>
-                  { item.data_publicacao }
-                </p>
+                <span>
+                  Publicada
+                  {' '}
+                  {formatDate(item.data_publicacao)}
+                </span>
               </div>
-              <div>
+              <div className="box-icon">
                 <FavoriteButton item={ item } />
               </div>
             </LatestNewsTitle>
-            <Link to={ item.link }>
-              <h2>{item.titulo}</h2>
-            </Link>
-            <Link to={ item.link }>
-              <p>{item.introducao}</p>
-            </Link>
+            <h2>{item.titulo}</h2>
+            <p>{item.introducao}</p>
             <LatestNewsSocial>
               <SocialIcon>
                 <Link to="https://wa.me/" target="_blank" rel="noopener noreferrer">
