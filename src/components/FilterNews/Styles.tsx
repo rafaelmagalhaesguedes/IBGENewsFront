@@ -56,7 +56,7 @@ export const ButtonFilter = styled.button`
   width: 10rem;
 
   &:hover {
-    background-color: #e22e2f;
+    background-color: #999;
     color: #fff;
     cursor: pointer;
   }
@@ -64,5 +64,7 @@ export const ButtonFilter = styled.button`
   &.active {
     background-color: #e22e2f;
     color: #fff;
+    border: none;
+    border-bottom: 1px solid #000;
   }
 `;
