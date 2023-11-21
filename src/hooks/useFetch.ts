@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import { NewsType } from '../types/types';
 
-function useFetch(url: string) {
+function useFetch() {
   const [dataNews, setDataNews] = useState<NewsType[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  //
+  const URL = 'https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100';
+  //
 
   useEffect(() => {
     const fetchNews = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
+        const response = await fetch(URL);
         const data = await response.json();
         setDataNews(data.items);
       } catch (error) {
@@ -22,7 +23,7 @@ function useFetch(url: string) {
       }
     };
     fetchNews();
-  }, [url]);
+  }, [URL]);
 
   return { dataNews, isLoading };
 }
