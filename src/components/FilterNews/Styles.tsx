@@ -31,7 +31,7 @@ export const FilterNewsButton = styled.nav`
     width: 100%;
     justify-content: center;
     align-items: center;
-    padding: 1rem 0;
+    margin: 1rem;
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
