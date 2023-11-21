@@ -77,7 +77,7 @@ export const NavbarSearch = styled.div`
 `;
 
 export const InputSearch = styled.input`
-  height: 30px;
+  height: 35px;
   width: 340px;
   padding: 0 10px;
   border: none;
@@ -89,14 +89,25 @@ export const InputSearch = styled.input`
 
   @media (max-width: 768px) {
     width: 100%;
+    transition: width 0.5s ease-in-out;
+  }
+
+  @media (min-width: 769px) and (max-width: 1366px) {
+    width: 400px;
+    transition: width 0.5s ease-in-out;
+  }
+
+  @media (min-width: 1367px) {
+    width: 500px;
+    transition: width 0.5s ease-in-out;
   }
 `;
 
 export const IconSearch = styled(FaSearch)`
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     color: #fff;
-    background-color: #CD0404;
+    background-color: #e22e2f;
     cursor: pointer;
-    padding: 7px;
+    padding: 8px;
 `;

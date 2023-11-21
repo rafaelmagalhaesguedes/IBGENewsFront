@@ -1,5 +1,7 @@
-import iconLogo from '../../assets/images/logoNews.png';
-import { useHeader } from '../../hooks/useHeader';
+import { useContext, useState } from 'react';
+import Swal from 'sweetalert2';
+import iconLogo from '../../assets/logo/logo.svg';
+import { NewsContext } from '../../context/NewsContext';
 import {
   ContainerHeader,
   IconSearch,
@@ -7,7 +9,30 @@ import {
   Logo, LogoHeader, NavbarSearch, WrapperHeader } from './Styles';
 
 function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivElement> }) {
-  const { search, setSearch, handleSearch, handleKeyPress } = useHeader(filterNewsRef);
+  const { filterByString } = useContext(NewsContext);
+  const [search, setSearch] = useState('');
+
+  const handleSearch = () => {
+    if (!search) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Digite algo para pesquisar!',
+        timer: 3500,
+      });
+    }
+    filterByString(search);
+    setSearch('');
+    if (filterNewsRef.current) {
+      filterNewsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleKeyPress = (event: any) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
 
   return (
     <ContainerHeader>
