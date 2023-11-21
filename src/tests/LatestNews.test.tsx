@@ -1,24 +1,28 @@
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import { NewsContext } from '../context/NewsContext';
 import LatestNews from '../components/LatestNews/LatestNews';
 import { mockData } from './mock/mockData';
-import renderWithRouter from '../helpers/renderWithRouter';
 
 export const mockContextValue = {
   dataNews: mockData.items,
   filteredNews: mockData.items,
+  isLoading: false,
   filterByString: () => {},
   filterByNoticia: () => {},
   filterByRelease: () => {},
   filterByRecent: () => {},
   filterByFavorites: () => {},
+  filterByOldest: () => {},
 };
 
-describe('LatestNews', () => {
-  it('renders correctly and displays latest news information', () => {
-    renderWithRouter(
+describe('LatestNews component testing', () => {
+  it('1. Renders correctly and displays latest news information', () => {
+    render(
       <NewsContext.Provider value={ mockContextValue }>
-        <LatestNews />
+        <BrowserRouter>
+          <LatestNews />
+        </BrowserRouter>
       </NewsContext.Provider>,
     );
 
