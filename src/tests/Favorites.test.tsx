@@ -1,10 +1,9 @@
-import { fireEvent, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
-import renderWithRouter from '../helpers/renderWithRouter';
 import FavoriteButton from '../components/FavoriteButton/FavoriteButton';
 import NewsProvider from '../context/NewsProvider';
 
-describe('FavoriteButton Tests', () => {
+describe('FavoriteButton component testing', () => {
   const mockNewsItem = {
     id: 1,
     tipo: 'Notícia',
@@ -32,19 +31,19 @@ describe('FavoriteButton Tests', () => {
 
   const FAVORITE_BUTTON = 'favorite-btn';
 
-  it('Testa se o ícone do coração muda', async () => {
-    const { user } = renderWithRouter(<FavoriteButton item={ mockNewsItem } />);
+  it('1. Verify icons change on click', async () => {
+    render(<FavoriteButton item={ mockNewsItem } />);
 
     waitFor(async () => {
       const favoriteBtn = screen.getByTestId('favorite-btn');
       expect(favoriteBtn).toHaveProperty('favorited', 'noFavorited');
-      await user.click(favoriteBtn);
+      fireEvent.click(favoriteBtn);
       expect(favoriteBtn).toHaveProperty('alt', 'favorited');
     });
   });
 
-  it('should save favorite to localStorage when clicked', async () => {
-    renderWithRouter(<FavoriteButton item={ mockNewsItem } />);
+  it('2. Should save favorite to localStorage when clicked', async () => {
+    render(<FavoriteButton item={ mockNewsItem } />);
 
     const button = screen.getByTestId(FAVORITE_BUTTON);
     fireEvent.click(button);
@@ -52,10 +51,10 @@ describe('FavoriteButton Tests', () => {
     expect(window.localStorage.setItem).toHaveBeenCalled();
   });
 
-  it('should remove favorite from localStorage when clicked again', async () => {
+  it('3. Should remove favorite from localStorage when clicked again', async () => {
     window.localStorage.getItem = vi.fn(() => JSON.stringify([mockNewsItem]));
 
-    renderWithRouter(<NewsProvider><FavoriteButton item={ mockNewsItem } /></NewsProvider>);
+    render(<NewsProvider><FavoriteButton item={ mockNewsItem } /></NewsProvider>);
 
     const button = screen.getByTestId(FAVORITE_BUTTON);
     fireEvent.click(button);
