@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardNewsContainer = styled.div`
+export const CardContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -15,17 +15,17 @@ export const CardNewsContainer = styled.div`
   h2, p {
     padding: 10px 0;
     text-align: justify;
-    font-weight: bold;
   }
 
   h2 {
-    font-size: 1rem;
-    color: #2A2A2A;
+    font-size: 1.1rem;
+    color: #111;
+    font-weight: 700;
   }
 
   p {
-    color: #666;
-    font-size: 0.9rem;
+    color: #333;
+    font-size: 0.8rem;
     letter-spacing: 1px;
     line-height: 1.3rem;
     font-weight: normal;
@@ -49,14 +49,11 @@ export const CardNewsContainer = styled.div`
   }
 `;
 
-export const NewsItemsCard = styled.div`
+export const CardItems = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30%;
-  height: auto;
-  cursor: pointer;
+  width: 31%;
   margin-bottom: 4rem;
-  justify-content: space-between;
   border-radius: 5px;
   background-color: #fff;
   padding: 1rem;
@@ -84,47 +81,59 @@ export const NewsItemsCard = styled.div`
   }
 `;
 
-export const NewsItemsImage = styled.img`
+export const CardImage = styled.img`
   width: 100%;
-  height: 220px;
-
-  @media (max-width: 768px) {
-    height: auto;
-  }
+  height: 100%;
 
   @media (min-width: 769px) and (max-width: 1024px) {
     flex-direction: column;
     transition: 0.3s;
     width: 100%;
-    height: auto;
+  }
+
+  @media (min-width: 1920px) {
+    width: 100%;
   }
 `;
 
-export const NewsItemsInfos = styled.div`
+export const CardBody = styled.div`
   display: flex;
-  justify-content: space-between;
-  flex-flow: row wrap;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+`;
+
+export const CardTitle = styled.div``;
+
+export const CardSection = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    margin-top: 1rem;
+  }
+`;
+
+export const DateAndLink = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
     transition: 0.3s;
     width: 100%;
     height: auto;
     jutify-content: center;
     align-items: center;
     gap: 1rem;
-  }
-`;
-
-export const ButtonFavorite = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2rem;
-
-  @media (max-width: 768px) {
-    margin-top: 1rem;
   }
 `;
 
@@ -155,5 +164,16 @@ export const ButtonLoadMore = styled.button`
 
   @media (max-width: 768px) {
     width: 100%;
+  }
+`;
+
+export const NotFoundNews = styled.div`
+  h2 { 
+    display: flex;
+    width: 100%;
+    height: 70vh;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #2A2A2A;
   }
 `;
