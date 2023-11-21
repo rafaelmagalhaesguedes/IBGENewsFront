@@ -42,8 +42,10 @@ export const mockData = {
       tipo: 'Release',
       titulo: 'Volume dos Serviços varia -0,3% em setembro',
       introducao: 'Em setembro de 2023, o volume de serviços no Brasil decresceu 0,3% frente a agosto, na série com ajuste sazonal. O setor de serviços se encontra 10,8% acima do nível de fevereiro de 2020 (pré-pandemia) e 2,6% abaixo de dezembro de 2022 (ponto mais alto...',
+      // eslint-disable-next-line sonarjs/no-duplicate-string
       data_publicacao: '14/11/2023 09:00:00',
       produto_id: 9229,
+      // eslint-disable-next-line sonarjs/no-duplicate-string
       produtos: '9229|Pesquisa Mensal de Serviços|pesquisa-mensal-de-servicos|2076',
       editorias: 'economicas',
       imagens: '{"image_intro":"images\\/agenciadenoticias\\/releases\\/PMS_Release.png","float_intro":"","image_intro_alt":"","image_intro_caption":"","image_fulltext":"images\\/agenciadenoticias\\/releases\\/PMS_Release.png","float_fulltext":"","image_fulltext_alt":"","image_fulltext_caption":""}',
@@ -168,6 +170,7 @@ export const mockData = {
       tipo: 'Notícia',
       titulo: 'Inflação chega a 0,24% em outubro, impulsionada por alta das passagens aéreas',
       introducao: 'Os preços das passagens aéreas subiram 23,70% em outubro e contribuíram para a inflação do país - Foto: Acervo IBGE A inflação do país foi de 0,24% em outubro, após a alta de 0,26% no mês anterior. É o quarto mês seguido de taxas positivas do indicador....',
+      // eslint-disable-next-line sonarjs/no-duplicate-string
       data_publicacao: '10/11/2023 09:00:00',
       produto_id: 0,
       produtos: '9256|Índice Nacional de Preços ao Consumidor Amplo|indice-nacional-de-precos-ao-consumidor-amplo|2210;9258|Índice Nacional de Preços ao Consumidor|indice-nacional-de-precos-ao-consumidor|2077',
