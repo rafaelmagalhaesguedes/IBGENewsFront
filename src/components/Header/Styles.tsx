@@ -9,12 +9,10 @@ export const ContainerHeader = styled.header`
   border: none;
   align-items: center;
   justify-content: space-around;
-  fixed: top;
   position: fixed;
   top: 0;
 
   @media (max-width: 768px) {
-    position: relative;
     flex-direction: row;
     justify-content: center;
   }
@@ -40,6 +38,7 @@ export const LogoHeader = styled.div`
   display: flex;
   align-items: center;
   border: none;
+  height: 100%;
 
   @media (max-width: 768px) {
     width: 20%;
@@ -47,13 +46,12 @@ export const LogoHeader = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 100px;
-  height: 100%;
+  max-width: 100%;
+  height: 70px;
   cursor: pointer;
 
   @media (max-width: 768px) {
     width: 80px;
-    height: 100%;
   }
 `;
 
