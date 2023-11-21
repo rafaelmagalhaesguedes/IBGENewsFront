@@ -6,6 +6,7 @@ import { formatDate } from '../../helpers/formatDate';
 import { NewsContext } from '../../context/NewsContext';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import {
+  LatestNewsDate,
   LatestNewsImage,
   LatestNewsInfos,
   LatestNewsItem,
@@ -33,7 +34,7 @@ function LatestNews() {
             </Link>
           </LatestNewsImage>
           <LatestNewsInfos>
-            <LatestNewsTitle>
+            <LatestNewsDate>
               <div className="box-title">
                 <h1>Última notícia</h1>
                 <span>
@@ -45,26 +46,28 @@ function LatestNews() {
               <div className="box-icon">
                 <FavoriteButton item={ item } />
               </div>
+            </LatestNewsDate>
+            <LatestNewsTitle>
+              <h2>{item.titulo}</h2>
+              <p>{item.introducao}</p>
             </LatestNewsTitle>
-            <h2>{item.titulo}</h2>
-            <p>{item.introducao}</p>
             <LatestNewsSocial>
               <SocialIcon>
                 <Link to="https://wa.me/" target="_blank" rel="noopener noreferrer">
-                  <FaWhatsapp size={ 20 } />
+                  <FaWhatsapp size={ 25 } />
                 </Link>
                 <Link to="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                  <FaInstagram size={ 20 } />
+                  <FaInstagram size={ 25 } />
                 </Link>
                 <Link to="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                  <FaFacebook size={ 20 } />
+                  <FaFacebook size={ 25 } />
                 </Link>
                 <Link to="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-                  <FaTwitter size={ 20 } />
+                  <FaTwitter size={ 25 } />
                 </Link>
               </SocialIcon>
               <LinkNews>
-                <Link to={ item.link }>Notícia completa</Link>
+                <Link to={ item.link } target="_blank">Notícia completa</Link>
               </LinkNews>
             </LatestNewsSocial>
           </LatestNewsInfos>
