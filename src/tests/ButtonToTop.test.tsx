@@ -1,18 +1,17 @@
-import { fireEvent } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import BackToTopButton from '../components/BackToTopButton/BackToTopButton';
-import renderWithRouter from '../helpers/renderWithRouter';
 
-describe('BackToTopButton', () => {
+describe('ButtonToTop component testing', () => {
   const BUTTON = 'button-to-top';
 
-  it('renders correctly', () => {
-    const { queryByRole } = renderWithRouter(<BackToTopButton />);
+  it('1. Renders correctly', () => {
+    const { queryByRole } = render(<BackToTopButton />);
 
     expect(queryByRole('button')).not.toBeInTheDocument();
   });
 
-  it('appears when window is scrolled down', () => {
-    const { getByTestId } = renderWithRouter(<BackToTopButton />);
+  it('2. Appears when window is scrolled down', () => {
+    const { getByTestId } = render(<BackToTopButton />);
 
     // Simulate window scroll event
     window.scrollY = 500;
@@ -21,8 +20,8 @@ describe('BackToTopButton', () => {
     expect(getByTestId(BUTTON)).toBeInTheDocument();
   });
 
-  it('scrolls to top when clicked', () => {
-    const { getByTestId } = renderWithRouter(<BackToTopButton />);
+  it('3. Scrolls to top when clicked', () => {
+    const { getByTestId } = render(<BackToTopButton />);
 
     // Simulate window scroll event
     window.scrollY = 500;
@@ -34,8 +33,8 @@ describe('BackToTopButton', () => {
     expect(window.scrollY).toBe(500);
   });
 
-  it('sets isVisible to false when window is not scrolled down enough', () => {
-    const { queryByTestId } = renderWithRouter(<BackToTopButton />);
+  it('4. Sets isVisible to false when window is not scrolled down enough', () => {
+    const { queryByTestId } = render(<BackToTopButton />);
 
     // Simulate window scroll event
     window.scrollY = 200;
