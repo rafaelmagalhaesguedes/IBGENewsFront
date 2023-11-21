@@ -8,7 +8,7 @@ export const LatestNewsItem = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    margin: 1em 0 2rem 0;
+    margin: 6rem 0 2rem 0;
     transition: 0.3s;
     gap: 0;
   }
@@ -16,7 +16,7 @@ export const LatestNewsItem = styled.div`
   @media (min-width: 769px) and (max-width: 1024px) {
     flex-direction: column-reverse;
     gap: 1rem;
-    margin: 8em 0 2rem 0;
+    margin: 6em 0 2rem 0;
     transition: 0.3s;
   }
 `;
@@ -185,7 +185,7 @@ export const LatestNewsSocial = styled.div`
     gap: 1rem;
   }
 
-  @media (min-width: 301px) and (max-width: 473px) {
+  @media (min-width: 301px) and (max-width: 400px) {
     flex-direction: column-reverse;
     justify-content: center;
     gap: 2rem;
