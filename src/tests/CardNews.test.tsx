@@ -1,22 +1,23 @@
-import { screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent, render } from '@testing-library/react';
 import { mockData } from './mock/mockData';
 import { NewsContext } from '../context/NewsContext';
 import CardNews from '../components/CardNews/CardNews';
-import renderWithRouter from '../helpers/renderWithRouter';
 
 export const mockContextValue = {
   dataNews: mockData.items,
   filteredNews: mockData.items,
+  isLoading: false,
   filterByString: () => {},
   filterByNoticia: () => {},
   filterByRelease: () => {},
   filterByRecent: () => {},
   filterByFavorites: () => {},
+  filterByOldest: () => {},
 };
 
-describe('CardNews Test', () => {
+describe('CardNews component testing', () => {
   it('renders news cards correctly', () => {
-    renderWithRouter(
+    render(
       <NewsContext.Provider value={ mockContextValue }>
         <CardNews />
       </NewsContext.Provider>,
@@ -32,7 +33,7 @@ describe('CardNews Test', () => {
   });
 
   it('loads more news when button is clicked', () => {
-    const { getByText, queryAllByTestId } = renderWithRouter(
+    const { getByText, queryAllByTestId } = render(
       <NewsContext.Provider value={ mockContextValue }>
         <CardNews />
       </NewsContext.Provider>,
