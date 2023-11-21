@@ -49,7 +49,6 @@ const useFilterNews = (news: NewsType[]) => {
   // Filter by type release
   const filterByRelease = useCallback(() => {
     const filtered = news.filter(({ tipo }) => tipo === 'Release');
-    console.log(filtered);
     setFilteredNews(filtered);
   }, [news]);
 
