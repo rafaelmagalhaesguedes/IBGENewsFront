@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-max-depth */
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaWhatsapp, FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaWhatsapp, FaFacebook, FaTwitter } from 'react-icons/fa';
 import { formatDate } from '../../helpers/formatDate';
 import { NewsContext } from '../../context/NewsContext';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
@@ -53,16 +53,25 @@ function LatestNews() {
             </LatestNewsTitle>
             <LatestNewsSocial>
               <SocialIcon>
-                <Link to="https://wa.me/" target="_blank" rel="noopener noreferrer">
+                <Link
+                  to={ `https://wa.me/?text=${encodeURIComponent(item.link)}` }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaWhatsapp size={ 25 } />
                 </Link>
-                <Link to="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                  <FaInstagram size={ 25 } />
-                </Link>
-                <Link to="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                <Link
+                  to={ `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(item.link)}` }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaFacebook size={ 25 } />
                 </Link>
-                <Link to="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                <Link
+                  to={ `https://twitter.com/intent/tweet?url=${encodeURIComponent(item.link)}` }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaTwitter size={ 25 } />
                 </Link>
               </SocialIcon>
