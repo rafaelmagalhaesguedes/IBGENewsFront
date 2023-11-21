@@ -11,8 +11,12 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Nunito , sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2 {
     font-family: IBM Plex Serif , serif;
+  }
+
+  p {
+    font-family: Poppins , sans-serif;
   }
 
   a {
