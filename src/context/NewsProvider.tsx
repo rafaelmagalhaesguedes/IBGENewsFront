@@ -1,6 +1,6 @@
 import { NewsContext } from './NewsContext';
 import useFetch from '../hooks/useFetch';
-import useFilterNews from '../hooks/useFilterNews';
+import useFilterNews from '../hooks/useFilter';
 
 type NewsProviderProps = {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ type NewsProviderProps = {
 
 function NewsProvider({ children } : NewsProviderProps) {
   // Dados da API
-  const { dataNews, isLoading } = useFetch('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=100');
+  const { dataNews, isLoading } = useFetch();
 
   // Filtros
   const {
