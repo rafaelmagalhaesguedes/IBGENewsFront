@@ -1,8 +1,8 @@
 import { FavButton } from './Styles';
 import useFavorites from '../../hooks/useFavorites';
 import { NewsType } from '../../types/types';
-import favorited from '../../assets/images/blackHeartIcon.svg';
-import noFavorited from '../../assets/images/whiteHeartIcon.svg';
+import favorited from '../../assets/icons/blackHeartIcon.svg';
+import noFavorited from '../../assets/icons/whiteHeartIcon.svg';
 
 type FavoriteButtonProps = {
   item: NewsType;
