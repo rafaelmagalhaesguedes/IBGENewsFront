@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import styled from 'styled-components';
 
 export const LatestNewsItem = styled.div`
@@ -8,9 +9,9 @@ export const LatestNewsItem = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    margin: 6rem 0 2rem 0;
+    margin: 5rem 0 2rem 0;
     transition: 0.3s;
-    gap: 0;
+    gap: 0.5rem;
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
@@ -116,7 +117,7 @@ export const LatestNewsDate = styled.div`
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #e52e2e;
     font-weight: bold;
   }
@@ -124,7 +125,7 @@ export const LatestNewsDate = styled.div`
   span {
     color: #111;
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: normal;
     letter-spacing: 0.5px;
     line-height: 1rem;
   }
@@ -151,14 +152,15 @@ export const LatestNewsTitle = styled.div`
     cursor: pointer;
     margin-bottom: 1.5rem;
     text-align: justify;
+    font-weight: 700;
   }
 
   p {
     color: #333;
     font-size: 1rem;
     letter-spacing: 0.5px;
-    line-height: 1.5rem;
-    font-weight: 300;
+    line-height: 1.6rem;
+    font-weight: normal;
     margin-bottom: 1.5rem;
     text-align: justify;
   }
@@ -167,8 +169,19 @@ export const LatestNewsTitle = styled.div`
     h2 {
       font-size: 1.2rem;
     }
+
     p {
       font-size: 0.9rem;
+    }
+  }
+
+  @media (min-width: 301px) and (max-width: 768px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
     }
   }
 `;
@@ -185,10 +198,18 @@ export const LatestNewsSocial = styled.div`
     gap: 1rem;
   }
 
-  @media (min-width: 301px) and (max-width: 400px) {
+  @media (min-width: 301px) and (max-width: 500px) {
     flex-direction: column-reverse;
     justify-content: center;
     gap: 2rem;
+  }
+
+  @media (min-width: 500px) and (max-width: 768px) {
+    justify-content: space-around;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    justify-content: space-around;
   }
 
   @media (min-width: 1920px){
@@ -215,22 +236,36 @@ export const SocialIcon = styled.div`
   }
 `;
 
-export const LinkNews = styled.a`
-  text-decoration: none;
-  color: #fff;
-  background-color: #e22e2f;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  transition: 0.3s;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 0.9rem;
-
+export const LinkNews = styled.div`
   a {
+    text-decoration: none;
     color: white;
+    background-color: #e22e2f;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 0.9rem;
+
+    &:hover {
+      background-color: #000;
+    }
   }
 
-  &:hover {
-    background-color: #000;
+  @media (max-width: 450px) {
+    margin: 2rem 0 1rem 0;
+
+    a {
+      margin-top: 1rem;
+      padding: 1rem 2rem;
+    }
+  }
+
+  @media (min-width: 451px) and (max-width: 768px) {
+    a {
+      margin-top: 0;
+      padding: 1rem 2rem;
+    }
   }
 `;

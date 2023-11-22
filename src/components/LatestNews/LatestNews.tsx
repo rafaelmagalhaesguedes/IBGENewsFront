@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-max-depth */
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaWhatsapp, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaWhatsappSquare,
+  FaFacebookSquare } from 'react-icons/fa';
+import { FaSquareXTwitter } from 'react-icons/fa6';
 import { formatDate } from '../../helpers/formatDate';
 import { NewsContext } from '../../context/NewsContext';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
@@ -58,21 +60,21 @@ function LatestNews() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaWhatsapp size={ 25 } />
+                  <FaWhatsappSquare size={ 30 } />
                 </Link>
                 <Link
                   to={ `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(item.link)}` }
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaFacebook size={ 25 } />
+                  <FaFacebookSquare size={ 30 } />
                 </Link>
                 <Link
                   to={ `https://twitter.com/intent/tweet?url=${encodeURIComponent(item.link)}` }
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaTwitter size={ 25 } />
+                  <FaSquareXTwitter size={ 30 } />
                 </Link>
               </SocialIcon>
               <LinkNews>
