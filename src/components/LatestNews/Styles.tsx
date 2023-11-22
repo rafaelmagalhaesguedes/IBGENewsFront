@@ -29,7 +29,7 @@ export const LatestNewsImage = styled.div`
   
   img {
     width: 754px;
-    height: 485px;
+    height: auto;
   }
 
   @media (max-width: 768px) {
@@ -75,8 +75,7 @@ export const LatestNewsInfos = styled.div`
   background-color: #fff;
   padding: 1rem 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  height: 485px;
-
+  
   @media (max-width: 768px) {
     width: 100%;
     height: auto;
@@ -241,7 +240,7 @@ export const LinkNews = styled.div`
     text-decoration: none;
     color: white;
     background-color: #e22e2f;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 2rem;
     border-radius: 5px;
     transition: 0.3s;
     cursor: pointer;
@@ -254,7 +253,7 @@ export const LinkNews = styled.div`
   }
 
   @media (max-width: 450px) {
-    margin: 2rem 0 1rem 0;
+    margin: 1rem;  
 
     a {
       margin-top: 1rem;
@@ -263,6 +262,7 @@ export const LinkNews = styled.div`
   }
 
   @media (min-width: 451px) and (max-width: 768px) {
+    margin: 1rem;  
     a {
       margin-top: 0;
       padding: 1rem 2rem;
