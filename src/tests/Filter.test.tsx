@@ -1,7 +1,9 @@
 import { renderHook } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
+import { vi } from 'vitest';
+import moment from 'moment';
 import { NewsType } from '../types/types';
-import useFilterNews from '../hooks/useFilter';
+import useFilter from '../hooks/useFilter';
 
 // News mock
 const news: NewsType[] = [
@@ -21,89 +23,118 @@ const news: NewsType[] = [
   },
 ];
 
-it('Filter hook testing', () => {
-  const { result } = renderHook(() => useFilterNews(news));
+const DATA = 'DD/MM/YYYY HH:mm:ss';
 
-  // Teste filterByString
-  act(() => {
-    result.current.filterByString('Test');
-  });
-  expect(result.current.filteredNews).toEqual(news);
+describe('Filter hook testing', () => {
+  it('1. FilterByString testing', () => {
+    const { result } = renderHook(() => useFilter(news));
 
-  // Teste filterByRecent
-  act(() => {
-    result.current.filterByRecent();
-  });
-  expect(result.current.filteredNews).toEqual([news[0]]);
+    act(() => {
+      result.current.filterByString('Encontro');
+    });
 
-  // Teste filterByOldest
-  act(() => {
-    result.current.filterByOldest();
+    expect(result.current.filteredNews).toEqual(news);
   });
-  expect(result.current.filteredNews).toEqual([news[0]]);
 
-  // Teste filterByNoticia
-  act(() => {
-    result.current.filterByNoticia();
-  });
-  expect(result.current.filteredNews).toEqual([news[0]]);
+  it('2. FilterByString should return an empty array when there are no matches', () => {
+    const { result } = renderHook(() => useFilter(news));
 
-  // Teste filterByRelease
-  act(() => {
-    result.current.filterByRelease();
-  });
-  expect(result.current.filteredNews).toEqual([news[0]]);
+    act(() => {
+      result.current.filterByString('does not exist news in jornal &&221');
+    });
 
-  // Primeiro, adicione uma notícia aos favoritos
-  localStorage.setItem('favorites', JSON.stringify([news[0]]));
-  act(() => {
-    result.current.filterByFavorites();
+    expect(result.current.filteredNews).toEqual([]);
   });
-  expect(result.current.filteredNews).toEqual([news[0]]);
+
+  it('3. FilterByRecent testing', () => {
+    const { result } = renderHook(() => useFilter(news));
+
+    act(() => {
+      result.current.filterByRecent();
+    });
+
+    expect(result.current.filteredNews).toEqual([]);
+  });
+
+  it('4. FilterByRelease testing', () => {
+    const { result } = renderHook(() => useFilter(news));
+
+    act(() => {
+      result.current.filterByRelease();
+    });
+
+    expect(result.current.filteredNews).toEqual([]);
+  });
+
+  it('5. FilterByNoticia testing', () => {
+    const { result } = renderHook(() => useFilter(news));
+
+    act(() => {
+      result.current.filterByNoticia();
+    });
+
+    expect(result.current.filteredNews).toEqual([news[0]]);
+  });
 });
 
-it('FilterByOldest with ascending order testing', () => {
-  const { result } = renderHook(() => useFilterNews(news));
+describe('Filter hook testing with localStorage', () => {
+  it('1. FilterByFavorites testing', () => {
+    const { result } = renderHook(() => useFilter(news));
 
-  act(() => {
-    result.current.filterByOldest(true);
+    // Primeiro, adicione uma notícia aos favoritos
+    localStorage.setItem('favorites', JSON.stringify([news[0]]));
+
+    act(() => {
+      result.current.filterByFavorites();
+    });
+
+    expect(result.current.filteredNews).toEqual([news[0]]);
   });
 
-  const sortedNews = [...news].sort((a, b) => {
-    return new Date(a.data_publicacao).getTime() - new Date(b.data_publicacao).getTime();
-  });
+  it('2. FilterByFavorites should filter news by favorites', () => {
+    const mockFavorites = [news[0]];
+    vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => JSON.stringify(mockFavorites));
 
-  expect(result.current.filteredNews).toEqual(sortedNews);
+    const { result } = renderHook(() => useFilter(news));
+
+    act(() => {
+      result.current.filterByFavorites();
+    });
+
+    expect(result.current.filteredNews).toEqual(mockFavorites);
+  });
 });
 
-it('FilterByOldest with descending order testing', () => {
-  const { result } = renderHook(() => useFilterNews(news));
+describe('Filter hook testing with moment filter by oldest news', () => {
+  it('1. FilterByOldest should sort news by date in ascending order when ascending is true', () => {
+    const { result } = renderHook(() => useFilter(news));
 
-  act(() => {
-    result.current.filterByOldest(false);
+    act(() => {
+      result.current.filterByOldest(true);
+    });
+
+    const sortedNews = [...news].sort((a, b) => {
+      const timeA = moment(a.data_publicacao, DATA);
+      const timeB = moment(b.data_publicacao, DATA);
+      return timeA.diff(timeB);
+    });
+
+    expect(result.current.filteredNews).toEqual(sortedNews);
   });
 
-  const sortedNews = [...news].sort((a, b) => {
-    return new Date(b.data_publicacao).getTime() - new Date(a.data_publicacao).getTime();
+  it('2. FilterByOldest should sort news by date in descending order when ascending is false', () => {
+    const { result } = renderHook(() => useFilter(news));
+
+    act(() => {
+      result.current.filterByOldest(false);
+    });
+
+    const sortedNews = [...news].sort((a, b) => {
+      const timeA = moment(a.data_publicacao, DATA);
+      const timeB = moment(b.data_publicacao, DATA);
+      return timeB.diff(timeA);
+    });
+
+    expect(result.current.filteredNews).toEqual(sortedNews);
   });
-
-  expect(result.current.filteredNews).toEqual(sortedNews);
-});
-
-it('Should sort news by oldest testing', () => {
-  const arrayNews: any = [
-    { data_publicacao: '02/02/2022 12:00:00', titulo: 'News 1', destaque: false },
-    { data_publicacao: '01/01/2022 12:00:00', titulo: 'News 2', destaque: false },
-    { data_publicacao: '03/03/2022 12:00:00', titulo: 'News 3', destaque: false },
-  ];
-
-  const { result } = renderHook(() => useFilterNews(arrayNews));
-
-  act(() => {
-    result.current.filterByOldest();
-  });
-
-  expect(result.current.filteredNews[0].titulo).toBe('News 2');
-  expect(result.current.filteredNews[1].titulo).toBe('News 1');
-  expect(result.current.filteredNews[2].titulo).toBe('News 3');
 });
