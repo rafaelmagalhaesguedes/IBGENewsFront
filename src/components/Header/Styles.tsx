@@ -46,8 +46,7 @@ export const LogoHeader = styled.div`
 `;
 
 export const Logo = styled.img`
-  max-width: 100%;
-  height: 70px;
+  width: 100px;
   cursor: pointer;
 
   @media (max-width: 768px) {
