@@ -19,15 +19,15 @@ export const CardContainer = styled.div`
 
   h2 {
     font-size: 1.1rem;
-    color: #111;
-    font-weight: 700;
+    color: #333;
+    font-weight: 600;
   }
 
   p {
     color: #333;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 1px;
-    line-height: 1.3rem;
+    line-height: 1.4rem;
     font-weight: normal;
     margin-bottom: 1rem;
 
@@ -40,6 +40,14 @@ export const CardContainer = styled.div`
     flex-direction: column;
     transition: 0.3s;
     align-items: center;
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
@@ -52,7 +60,7 @@ export const CardContainer = styled.div`
 export const CardItems = styled.div`
   display: flex;
   flex-direction: column;
-  width: 31%;
+  width: 30%;
   margin-bottom: 4rem;
   border-radius: 5px;
   background-color: #fff;
@@ -125,15 +133,15 @@ export const DateAndLink = styled.div`
   width: 100%;
   align-items: center;
   padding-bottom: 1rem;
+  margin-top: 1rem;
 
   @media (max-width: 768px) {
-    flex-direction: row;
+    flex-flow: row wrap;
     transition: 0.3s;
     width: 100%;
     height: auto;
     jutify-content: center;
-    align-items: center;
-    gap: 1rem;
+    margin-top: 0;
   }
 `;
 
