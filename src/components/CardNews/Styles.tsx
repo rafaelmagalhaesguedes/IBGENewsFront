@@ -19,7 +19,7 @@ export const CardContainer = styled.div`
 
   h2 {
     font-size: 1.1rem;
-    color: #333;
+    color: #555;
     font-weight: 600;
   }
 
@@ -30,10 +30,6 @@ export const CardContainer = styled.div`
     line-height: 1.4rem;
     font-weight: normal;
     margin-bottom: 1rem;
-
-    &:hover {
-      color: red;
-    }
   }
 
   @media (max-width: 768px) {
@@ -134,6 +130,14 @@ export const DateAndLink = styled.div`
   align-items: center;
   padding-bottom: 1rem;
   margin-top: 1rem;
+
+  span {
+    color: #333;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    line-height: 1.4rem;
+    font-weight: normal;
+  }
 
   @media (max-width: 768px) {
     flex-flow: row wrap;
