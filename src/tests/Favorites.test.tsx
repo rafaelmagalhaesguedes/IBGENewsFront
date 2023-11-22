@@ -35,7 +35,8 @@ describe('FavoriteButton component testing', () => {
     render(<FavoriteButton item={ mockNewsItem } />);
 
     waitFor(async () => {
-      const favoriteBtn = screen.getByTestId('favorite-btn');
+      const favoriteBtn = screen.getByTestId(FAVORITE_BUTTON);
+      expect(favoriteBtn).toBeInTheDocument();
       expect(favoriteBtn).toHaveProperty('favorited', 'noFavorited');
       fireEvent.click(favoriteBtn);
       expect(favoriteBtn).toHaveProperty('alt', 'favorited');
