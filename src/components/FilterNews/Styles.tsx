@@ -65,6 +65,5 @@ export const ButtonFilter = styled.button`
     background-color: #e22e2f;
     color: #fff;
     border: none;
-    border-bottom: 1px solid #000;
   }
 `;
