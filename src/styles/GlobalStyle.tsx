@@ -2,24 +2,25 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600&family=Nunito:ital,wght@0,300;0,400;0,500;0,700;0,800;0,1000;1,200;1,400&family=Poppins:wght@300;400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Poppins:wght@300;400;600;700&family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,700&display=swap');
   
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Nunito , sans-serif;
+    font-family: Roboto , sans-serif;
   }
 
   h1, h2 {
-    font-family: IBM Plex Serif , serif;
+    font-family: Poppins , serif-serif;
   }
 
   p {
-    font-family: Poppins , sans-serif;
+    font-family: Open Sans , sans-serif;
   }
 
   a {
     text-decoration: none;
   }
+
 `;
