@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2 {
-    font-family: Poppins , serif-serif;
+    font-family: Open Sans , serif-serif;
   }
 
   p {
