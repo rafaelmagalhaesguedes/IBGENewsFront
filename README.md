@@ -10,11 +10,11 @@ Para instalar o aplicativo, siga os seguintes passos:
 
 Clone o repositório usando o comando:
 
-  - git clone <URL_DO_REPOSITORIO>
+  - git clone git@github.com:rafaelmagalhaesguedes/IBGENewsApp.git
 
 Navegue até o diretório do projeto:
 
-  - cd IBGE-News-App
+  - cd IBGENewsApp
 
 Instale as dependências necessárias usando:
     
