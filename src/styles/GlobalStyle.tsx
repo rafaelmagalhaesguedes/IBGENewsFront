@@ -11,14 +11,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Roboto , sans-serif;
   }
 
-  h1, h2 {
+  h1, h2, p {
     font-family: Open Sans , serif-serif;
   }
-
-  p {
-    font-family: Open Sans , sans-serif;
-  }
-
+  
   a {
     text-decoration: none;
   }
