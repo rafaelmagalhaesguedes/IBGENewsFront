@@ -1,10 +1,8 @@
 /* eslint-disable react/jsx-max-depth */
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { NewsContext } from '../../context/NewsContext';
 import { formatDate } from '../../helpers/formatDate';
-import FavoriteButton from '../FavoriteButton/FavoriteButton';
-import { LinkNews } from '../LatestNews/Styles';
+import FavoriteButton from '../ButtonFavorite/ButtonFavorite';
 import {
   CardContainer,
   CardItems,
@@ -16,7 +14,11 @@ import {
   ButtonLoadMore,
   LoadMore,
   NotFoundNews,
+  SocialLink,
+  CardLinkNews,
+  DataFormated,
 } from './Styles';
+import ButtonSocialMedia from '../ButtonSocialMedia/ButtonSocialMedia';
 
 function CardNews() {
   const { filteredNews } = useContext(NewsContext);
@@ -43,18 +45,21 @@ function CardNews() {
                 </CardTitle>
                 <CardSection>
                   <DateAndLink>
-                    <span>
+                    <DataFormated>
+                      Publicada
+                      {' '}
                       {formatDate(item.data_publicacao)}
                       {' '}
                       atrás
-                    </span>
-                    <LinkNews>
-                      <Link to={ item.link } target="_blank">
-                        Notícia completa
-                      </Link>
-                    </LinkNews>
+                    </DataFormated>
+                    <CardLinkNews to={ item.link } target="_blank">
+                      Notícia completa
+                    </CardLinkNews>
                   </DateAndLink>
-                  <FavoriteButton item={ item } />
+                  <SocialLink>
+                    <ButtonSocialMedia item={ item } />
+                    <FavoriteButton item={ item } />
+                  </SocialLink>
                 </CardSection>
               </CardBody>
             </CardItems>

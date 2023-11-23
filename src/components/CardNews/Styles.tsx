@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
@@ -60,8 +61,8 @@ export const CardItems = styled.div`
   margin-bottom: 4rem;
   border-radius: 5px;
   background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
 
   @media (max-width: 768px) {
@@ -131,14 +132,6 @@ export const DateAndLink = styled.div`
   padding-bottom: 1rem;
   margin-top: 1rem;
 
-  span {
-    color: #333;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    line-height: 1.4rem;
-    font-weight: normal;
-  }
-
   @media (max-width: 768px) {
     flex-flow: row wrap;
     transition: 0.3s;
@@ -146,7 +139,25 @@ export const DateAndLink = styled.div`
     height: auto;
     jutify-content: center;
     margin-top: 0;
+    gap: 0;
   }
+`;
+
+export const DataFormated = styled.span`
+  color: #333;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  line-height: 1.4rem;
+  font-weight: normal;
+`;
+
+export const SocialLink = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: auto;
 `;
 
 export const LoadMore = styled.div`
@@ -187,5 +198,31 @@ export const NotFoundNews = styled.div`
     font-size: 1.2rem;
     text-align: center;
     color: #2A2A2A;
+  }
+`;
+
+export const CardLinkNews = styled(Link)`
+  text-decoration: none;
+  color: white;
+  background-color: #e22e2f;
+  padding: 0.7rem 2rem;
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 0.9rem;
+
+  &:hover {
+    background-color: #000;
+  }
+
+  @media (max-width: 450px) {
+    margin: 1rem 0 0 0;
+    padding: 1rem 2rem;
+  }
+
+  @media (min-width: 451px) and (max-width: 768px) {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
   }
 `;
