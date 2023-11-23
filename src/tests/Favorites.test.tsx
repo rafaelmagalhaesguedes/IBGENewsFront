@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
-import FavoriteButton from '../components/FavoriteButton/FavoriteButton';
+import FavoriteButton from '../components/ButtonFavorite/ButtonFavorite';
 import NewsProvider from '../context/NewsProvider';
 
 describe('FavoriteButton component testing', () => {
