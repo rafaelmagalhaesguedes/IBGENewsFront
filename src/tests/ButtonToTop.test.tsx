@@ -1,17 +1,17 @@
 import { fireEvent, render } from '@testing-library/react';
-import BackToTopButton from '../components/BackToTopButton/BackToTopButton';
+import { ButtonToTop } from '../components/ButtonToTop/Styles';
 
 describe('ButtonToTop component testing', () => {
   const BUTTON = 'button-to-top';
 
   it('1. Renders correctly', () => {
-    const { queryByRole } = render(<BackToTopButton />);
+    const { queryByRole } = render(<ButtonToTop />);
 
     expect(queryByRole('button')).not.toBeInTheDocument();
   });
 
   it('2. Appears when window is scrolled down', () => {
-    const { getByTestId } = render(<BackToTopButton />);
+    const { getByTestId } = render(<ButtonToTop />);
 
     // Simulate window scroll event
     window.scrollY = 500;
@@ -21,7 +21,7 @@ describe('ButtonToTop component testing', () => {
   });
 
   it('3. Scrolls to top when clicked', () => {
-    const { getByTestId } = render(<BackToTopButton />);
+    const { getByTestId } = render(<ButtonToTop />);
 
     // Simulate window scroll event
     window.scrollY = 500;
@@ -34,7 +34,7 @@ describe('ButtonToTop component testing', () => {
   });
 
   it('4. Sets isVisible to false when window is not scrolled down enough', () => {
-    const { queryByTestId } = render(<BackToTopButton />);
+    const { queryByTestId } = render(<ButtonToTop />);
 
     // Simulate window scroll event
     window.scrollY = 200;
