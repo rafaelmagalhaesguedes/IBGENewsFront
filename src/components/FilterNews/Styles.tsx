@@ -4,6 +4,7 @@ export const FilterNewsContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   background-color: #FFFFFFD9;
   height: 3rem;
   margin-top: 2rem;
