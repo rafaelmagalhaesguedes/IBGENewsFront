@@ -24,8 +24,6 @@ Inicie o aplicativo em modo de desenvolvimento:
     
   - npm run dev
 
-Agora, o aplicativo estará acessível localmente em http://localhost:3000.
-
 # Telas
 
 ### Desktop
@@ -34,24 +32,56 @@ Agora, o aplicativo estará acessível localmente em http://localhost:3000.
 
 ### Mobile
 
-![Example Image](./public//mobile-screen.png)
+![Mobile Screen](./public/mobile-screen.png)
 
 # Funcionalidades
 
-1. Filtra Notícias Mais Recentes: visualize as notícias mais recentes fornecidas pela API do IBGE.
+- Filtra Notícias Mais Recentes:
+  
+  - Visualize as notícias mais recentes fornecidas pela API do IBGE.
 
-2. Filtra Notícias Mais Antigas: acesse notícias mais antigas para obter informações históricas.
+- Filtra Notícias Mais Antigas:
+  
+  - Acesse notícias mais antigas para obter informações históricas.
 
-3. Filtra Notícias por Tipo: explore notícias categorizadas por tipo para uma busca mais específica.
+- Filtra Notícias por Tipo:
+  
+  - Explore notícias categorizadas por tipo para uma busca mais específica.
 
-4. Filtra Notícias Favoritas: marque notícias como favoritas para acesso rápido posteriormente.
+- Filtra Notícias Favoritas:
+  
+  - Marque notícias como favoritas para acesso rápido posteriormente.
 
-5. Busca Notícias na Base: utilize a funcionalidade de busca para encontrar notícias específicas com facilidade.
+- Busca Notícias na Base de dados:
+
+  - Utilize a funcionalidade de busca para encontrar notícias específicas com facilidade.
+
+# Cobertura de testes
+
+![Example Image](./public/cobertura-de-testes.png)
 
 # Tecnologias Utilizadas
 
-O IBGE News App foi construído utilizando as seguintes tecnologias: ReactJS, TypeScript e LocalStorage.
+- ReactJS
+  - React Testing Library
+  - Styled Components
+  - Custom Hooks
+  - Context API
+
+- TypeScript/JavaScript
+
+- CSS Flexbox
+
+- Git e GitHub para versionamento
+
+- Vercel para deploy
+
+- VSCode
 
 # Contribuição
 
 Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novas funcionalidades. Abra uma issue para discussão antes de enviar um pull request.
+
+# Author
+
+Rafael Magalhães Guedes
