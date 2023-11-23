@@ -29,9 +29,7 @@ function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivEleme
   };
 
   const handleKeyPress = (event: any) => {
-    if (event.key === 'Enter') {
-      handleSearch();
-    }
+    if (event.key === 'Enter') handleSearch();
   };
 
   return (
