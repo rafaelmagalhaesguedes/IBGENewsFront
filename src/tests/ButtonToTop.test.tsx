@@ -1,5 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
-import { ButtonToTop } from '../components/ButtonToTop/Styles';
+import ButtonToTop from '../components/ButtonToTop/ButtonToTop';
 
 describe('ButtonToTop component testing', () => {
   const BUTTON = 'button-to-top';
