@@ -26,6 +26,16 @@ Inicie o aplicativo em modo de desenvolvimento:
 
 Agora, o aplicativo estará acessível localmente em http://localhost:3000.
 
+# Telas
+
+### Desktop
+
+![Desktop Screen](./public/desktop-screen.png)
+
+### Mobile
+
+![Example Image](./public//mobile-screen.png)
+
 # Funcionalidades
 
 1. Filtra Notícias Mais Recentes: visualize as notícias mais recentes fornecidas pela API do IBGE.
