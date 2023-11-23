@@ -4,7 +4,7 @@ import { NewsType } from '../types/types';
 // e retorna a URL da imagem formatada
 //
 export const formatImage = (data: NewsType) => {
-  const images = data && JSON.parse(data.imagens || '{}');
+  const images = data && JSON.parse(data.imagens);
   const url = `https://agenciadenoticias.ibge.gov.br/${images.image_intro}`;
   return url;
 };
