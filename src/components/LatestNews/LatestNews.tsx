@@ -1,90 +1,67 @@
 /* eslint-disable react/jsx-max-depth */
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaWhatsappSquare,
-  FaFacebookSquare } from 'react-icons/fa';
-import { FaSquareXTwitter } from 'react-icons/fa6';
 import { formatDate } from '../../helpers/formatDate';
+import { formatImage } from '../../helpers/formatImage';
 import { NewsContext } from '../../context/NewsContext';
-import FavoriteButton from '../FavoriteButton/FavoriteButton';
+import ButtonFavorite from '../ButtonFavorite/ButtonFavorite';
+import ButtonSocialMedia from '../ButtonSocialMedia/ButtonSocialMedia';
 import {
-  LatestNewsDate,
-  LatestNewsImage,
-  LatestNewsInfos,
-  LatestNewsItem,
-  LatestNewsSocial,
-  LatestNewsTitle,
+  LatestNewsContainer,
   LinkNews,
-  SocialIcon,
+  NewsContent,
+  NewsHeader,
+  NewsImage,
+  NewsSocial,
+  NewsTitle,
 } from './Styles';
 
 function LatestNews() {
   const { dataNews } = useContext(NewsContext);
-  const item = dataNews && dataNews[0];
-  const images = item && JSON.parse(item.imagens);
+  const news = dataNews && dataNews[0];
 
   return (
-    <LatestNewsItem>
-      {item && (
+    <LatestNewsContainer>
+      {news && (
         <>
-          <LatestNewsImage>
-            <Link to={ item.link }>
-              <img
-                src={ `https://agenciadenoticias.ibge.gov.br/${images.image_intro}` }
-                alt={ item.titulo }
-              />
+          {/* News Image */}
+          <NewsImage>
+            <Link to={ news.link }>
+              <img src={ formatImage(news) } alt={ news.titulo } />
             </Link>
-          </LatestNewsImage>
-          <LatestNewsInfos>
-            <LatestNewsDate>
+          </NewsImage>
+
+          {/* News Content */}
+          <NewsContent>
+            <NewsHeader>
               <div className="box-title">
                 <h1>Última notícia</h1>
                 <span>
                   Publicada
                   {' '}
-                  {formatDate(item.data_publicacao)}
+                  {formatDate(news.data_publicacao)}
                 </span>
               </div>
               <div className="box-icon">
-                <FavoriteButton item={ item } />
+                <ButtonFavorite item={ news } />
               </div>
-            </LatestNewsDate>
-            <LatestNewsTitle>
-              <h2>{item.titulo}</h2>
-              <p>{item.introducao}</p>
-            </LatestNewsTitle>
-            <LatestNewsSocial>
-              <SocialIcon>
-                <Link
-                  to={ `https://wa.me/?text=${encodeURIComponent(item.link)}` }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaWhatsappSquare size={ 30 } />
-                </Link>
-                <Link
-                  to={ `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(item.link)}` }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaFacebookSquare size={ 30 } />
-                </Link>
-                <Link
-                  to={ `https://twitter.com/intent/tweet?url=${encodeURIComponent(item.link)}` }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaSquareXTwitter size={ 30 } />
-                </Link>
-              </SocialIcon>
-              <LinkNews>
-                <Link to={ item.link } target="_blank">Notícia completa</Link>
+            </NewsHeader>
+
+            <NewsTitle>
+              <h2>{news.titulo}</h2>
+              <p>{news.introducao}</p>
+            </NewsTitle>
+
+            <NewsSocial>
+              <ButtonSocialMedia item={ news } />
+              <LinkNews to={ news.link } target="_blank">
+                Notícia completa
               </LinkNews>
-            </LatestNewsSocial>
-          </LatestNewsInfos>
+            </NewsSocial>
+          </NewsContent>
         </>
       )}
-    </LatestNewsItem>
+    </LatestNewsContainer>
   );
 }
 

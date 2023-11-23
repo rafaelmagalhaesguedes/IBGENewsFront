@@ -1,7 +1,8 @@
 /* eslint-disable max-lines */
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const LatestNewsItem = styled.div`
+export const LatestNewsContainer = styled.section`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -22,7 +23,7 @@ export const LatestNewsItem = styled.div`
   }
 `;
 
-export const LatestNewsImage = styled.div`
+export const NewsImage = styled.div`
   width: 60%;
   height: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -69,7 +70,7 @@ export const LatestNewsImage = styled.div`
   }
 `;
 
-export const LatestNewsInfos = styled.div`
+export const NewsContent = styled.div`
   width: 40%;
   height: auto;
   background-color: #fff;
@@ -103,7 +104,7 @@ export const LatestNewsInfos = styled.div`
   }
 `;
 
-export const LatestNewsDate = styled.div`
+export const NewsHeader = styled.div`
   display: flex;
   justify-content: space-between;
 
@@ -144,7 +145,7 @@ export const LatestNewsDate = styled.div`
   }
 `;
 
-export const LatestNewsTitle = styled.div`
+export const NewsTitle = styled.div`
   h2 {
     font-size: 1.7rem;
     color: #333;
@@ -185,7 +186,7 @@ export const LatestNewsTitle = styled.div`
   }
 `;
 
-export const LatestNewsSocial = styled.div`
+export const NewsSocial = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -213,59 +214,32 @@ export const LatestNewsSocial = styled.div`
 
   @media (min-width: 1920px){
     justify-content: space-around;
+    margin-top: 5rem;
   }
 `;
 
-export const SocialIcon = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  gap: 1rem;
+export const LinkNews = styled(Link)`
+  text-decoration: none;
+  color: white;
+  background-color: #e22e2f;
+  padding: 0.7rem 2rem;
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 0.9rem;
 
-  a {
-    color: #000;
-    transition: 0.3s;
-
-    &:hover {
-      color: #a9a9a9;
-    }
-  }
-
-  @media (max-width: 768px) {
-    gap: 2rem;
-  }
-`;
-
-export const LinkNews = styled.div`
-  a {
-    text-decoration: none;
-    color: white;
-    background-color: #e22e2f;
-    padding: 0.7rem 2rem;
-    border-radius: 5px;
-    transition: 0.3s;
-    cursor: pointer;
-    font-weight: normal;
-    font-size: 0.9rem;
-
-    &:hover {
-      background-color: #000;
-    }
+  &:hover {
+    background-color: #000;
   }
 
   @media (max-width: 450px) {
-    margin: 1rem;  
-
-    a {
-      margin-top: 1rem;
-      padding: 1rem 2rem;
-    }
+    margin: 1rem 0 0 0;
+    padding: 1rem 2rem;
   }
 
   @media (min-width: 451px) and (max-width: 768px) {
-    margin: 1rem;  
-    a {
-      margin-top: 0;
-      padding: 1rem 2rem;
-    }
+    margin-top: 1rem;
+    padding: 1rem 2rem;
   }
 `;
