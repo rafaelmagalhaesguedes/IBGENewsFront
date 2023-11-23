@@ -1,16 +1,25 @@
 import { useState, useEffect } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
-import { BackToTop, BackToTopSection } from './Styles';
+import { ButtonToTop, ButtonToTopContainer } from './Styles';
 
-function BackToTopButton() {
+function ToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
 
+  // Handle scroll
   const handleScroll = () => {
     if (window.scrollY > 300) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
     }
+  };
+
+  // Scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   useEffect(() => {
@@ -21,22 +30,15 @@ function BackToTopButton() {
     };
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
   return (
-    <BackToTopSection>
+    <ButtonToTopContainer>
       {isVisible && (
-        <BackToTop data-testid="button-to-top" onClick={ scrollToTop }>
+        <ButtonToTop data-testid="button-to-top" onClick={ scrollToTop }>
           <FaArrowUp size={ 25 } />
-        </BackToTop>
+        </ButtonToTop>
       )}
-    </BackToTopSection>
+    </ButtonToTopContainer>
   );
 }
 
-export default BackToTopButton;
+export default ToTopButton;
