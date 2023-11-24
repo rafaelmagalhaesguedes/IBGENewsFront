@@ -21,6 +21,9 @@ export function useHeader(filterNewsRef: React.RefObject<HTMLDivElement>) {
     // Filter news
     filterByString(search);
 
+    // Clear search
+    setSearch('');
+
     // Scroll to filter news
     if (filterNewsRef.current) {
       setTimeout(() => {
