@@ -14,8 +14,11 @@ function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivEleme
     search,
     setSearch,
     handleSearch,
-    handleKeyPress,
   } = useHeader(filterNewsRef);
+
+  const handleKeyPress = (event: any) => {
+    if (event.key === 'Enter') handleSearch();
+  };
 
   return (
     <ContainerHeader>
@@ -30,7 +33,7 @@ function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivEleme
             value={ search }
             placeholder="Buscar notícia"
             onChange={ (e) => setSearch(e.target.value) }
-            onKeyPress={ handleKeyPress }
+            onKeyDown={ handleKeyPress }
           />
           <IconSearch
             data-testid="search-icon"
