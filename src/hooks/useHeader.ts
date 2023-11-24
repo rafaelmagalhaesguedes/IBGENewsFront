@@ -9,6 +9,7 @@ export function useHeader(filterNewsRef: React.RefObject<HTMLDivElement>) {
   const [search, setSearch] = useState('');
 
   const handleSearch = () => {
+    // Validate search
     if (!search) {
       Swal.fire({
         icon: 'error',
@@ -17,20 +18,29 @@ export function useHeader(filterNewsRef: React.RefObject<HTMLDivElement>) {
         timer: 3500,
       });
     }
+    // Filter news
     filterByString(search);
-    setSearch('');
+
+    // Scroll to filter news
     if (filterNewsRef.current) {
-      filterNewsRef.current.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        // Filter news is a div that wraps the filtered news
+        filterNewsRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
     }
   };
 
+  // Handle search on enter
   const handleKeyPress = (event: any) => {
+    // Enter key
     if (event.key === 'Enter') handleSearch();
   };
 
   useEffect(() => {
+    // Show search when search is not empty
     if (search) {
       setIsSearchVisible(true);
+      // Hide search when search is empty
     } else {
       setIsSearchVisible(false);
     }

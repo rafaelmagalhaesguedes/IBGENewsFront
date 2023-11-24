@@ -1,48 +1,26 @@
-import { useContext, useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
+import { useHeader } from '../../hooks/useHeader';
 import iconLogo from '../../assets/logo/logo.svg';
 import {
   ContainerHeader,
+  WrapperHeader,
+  Logo,
+  LogoHeader,
   IconSearch,
   IconSearchMobile,
   InputSearch,
-  Logo, LogoHeader, NavbarSearch, ToggleSearch, WrapperHeader } from './Styles';
-import { NewsContext } from '../../context/NewsContext';
+  NavbarSearch,
+  ToggleSearch,
+} from './Styles';
 
 function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivElement> }) {
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
-  const { filterByString } = useContext(NewsContext);
-  const [search, setSearch] = useState('');
-
-  const handleSearch = () => {
-    if (!search) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Digite algo para pesquisar!',
-        timer: 3500,
-      });
-    }
-    filterByString(search);
-    setSearch('');
-    if (filterNewsRef.current) {
-      setTimeout(() => {
-        filterNewsRef.current?.scrollIntoView({ behavior: 'smooth' });
-      }, 500);
-    }
-  };
-
-  const handleKeyPress = (event: any) => {
-    if (event.key === 'Enter') handleSearch();
-  };
-
-  useEffect(() => {
-    if (search) {
-      setIsSearchVisible(true);
-    } else {
-      setIsSearchVisible(false);
-    }
-  }, [search]);
+  const {
+    isSearchVisible,
+    setIsSearchVisible,
+    search,
+    setSearch,
+    handleSearch,
+    handleKeyPress,
+  } = useHeader(filterNewsRef);
 
   return (
     <ContainerHeader>
