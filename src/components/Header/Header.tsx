@@ -1,36 +1,21 @@
-import { useContext, useState } from 'react';
-import Swal from 'sweetalert2';
+import { useHeader } from '../../hooks/useHeader';
 import iconLogo from '../../assets/logo/logo.svg';
-import { NewsContext } from '../../context/NewsContext';
 import {
   ContainerHeader,
   IconSearch,
+  IconSearchMobile,
   InputSearch,
-  Logo, LogoHeader, NavbarSearch, WrapperHeader } from './Styles';
+  Logo, LogoHeader, NavbarSearch, ToggleSearch, WrapperHeader } from './Styles';
 
 function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivElement> }) {
-  const { filterByString } = useContext(NewsContext);
-  const [search, setSearch] = useState('');
-
-  const handleSearch = () => {
-    if (!search) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Digite algo para pesquisar!',
-        timer: 3500,
-      });
-    }
-    filterByString(search);
-    setSearch('');
-    if (filterNewsRef.current) {
-      filterNewsRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleKeyPress = (event: any) => {
-    if (event.key === 'Enter') handleSearch();
-  };
+  const {
+    isSearchVisible,
+    setIsSearchVisible,
+    search,
+    setSearch,
+    handleSearch,
+    handleKeyPress,
+  } = useHeader(filterNewsRef);
 
   return (
     <ContainerHeader>
@@ -38,7 +23,7 @@ function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivEleme
         <LogoHeader>
           <Logo data-testid="logo" src={ iconLogo } alt="Logo" />
         </LogoHeader>
-        <NavbarSearch>
+        <NavbarSearch isVisible={ isSearchVisible }>
           <InputSearch
             data-testid="search-input"
             type="text"
@@ -53,6 +38,12 @@ function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivEleme
           />
         </NavbarSearch>
       </WrapperHeader>
+      <ToggleSearch>
+        <IconSearchMobile
+          data-testid="search-mobile"
+          onClick={ () => setIsSearchVisible(!isSearchVisible) }
+        />
+      </ToggleSearch>
     </ContainerHeader>
   );
 }

@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 
+// Defina o tipo de NavbarSearchProps
+type NavbarSearchProps = {
+  isVisible: boolean;
+};
+
 export const ContainerHeader = styled.header`
   display: flex;
   width: 100%;
@@ -16,7 +21,6 @@ export const ContainerHeader = styled.header`
     flex-direction: row;
     justify-content: center;
   }
-
 `;
 
 export const WrapperHeader = styled.div`
@@ -39,10 +43,6 @@ export const LogoHeader = styled.div`
   align-items: center;
   border: none;
   height: 100%;
-
-  @media (max-width: 768px) {
-    width: 20%;
-  }
 `;
 
 export const Logo = styled.img`
@@ -61,15 +61,12 @@ export const TitleHeader = styled.h1`
   text-transform: uppercase;
 `;
 
-export const NavbarSearch = styled.div`
+export const NavbarSearch = styled.div<NavbarSearchProps>`
   display: flex;
 
-  @media (max-width: 250px) {
-    display: none;
-  }
-
-  @media (max-width: 390px) {
-    width: 60%;
+  @media (max-width: 768px) {
+    display: ${(props) => (props.isVisible ? 'flex' : 'none')};
+    width: 100%;
   }
 `;
 
@@ -87,6 +84,7 @@ export const InputSearch = styled.input`
   @media (max-width: 768px) {
     width: 100%;
     transition: width 0.5s ease-in-out;
+    border-radius: 4px;
   }
 
   @media (min-width: 769px) and (max-width: 1366px) {
@@ -107,4 +105,30 @@ export const IconSearch = styled(FaSearch)`
     background-color: #e22e2f;
     cursor: pointer;
     padding: 8px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+`;
+
+export const ToggleSearch = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    cursor: pointer;
+    padding: 8px;
+  }
+`;
+
+export const IconSearchMobile = styled(FaSearch)`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    color: #fff;
+    margin-right: 15px;
+    width: 25px;
+    height: 25px;
+  }
 `;
