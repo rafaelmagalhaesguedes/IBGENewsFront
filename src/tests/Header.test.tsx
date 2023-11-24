@@ -1,5 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import { vi } from 'vitest';
+import React from 'react';
 import Header from '../components/Header/Header';
 import { NewsContext } from '../context/NewsContext';
 
@@ -104,5 +105,13 @@ describe('Header component testing', () => {
     fireEvent.click(screen.getByTestId('search-icon'));
 
     expect(mockContextValue.filterByString).toHaveBeenCalledWith('test');
+  });
+
+  it('7. Should toggle search visibility when clicking on IconSearchMobile', () => {
+    const { getByTestId } = render(<Header filterNewsRef={ React.createRef() } />);
+
+    fireEvent.click(getByTestId('search-mobile'));
+
+    expect(getByTestId(SEARCH_INPUT)).toBeVisible();
   });
 });
