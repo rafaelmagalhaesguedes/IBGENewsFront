@@ -24,6 +24,10 @@ export function useHeader(filterNewsRef: React.RefObject<HTMLDivElement>) {
     }
   };
 
+  const handleKeyPress = (event: any) => {
+    if (event.key === 'Enter') handleSearch();
+  };
+
   useEffect(() => {
     if (search) {
       setIsSearchVisible(true);
@@ -38,5 +42,6 @@ export function useHeader(filterNewsRef: React.RefObject<HTMLDivElement>) {
     search,
     setSearch,
     handleSearch,
+    handleKeyPress,
   };
 }

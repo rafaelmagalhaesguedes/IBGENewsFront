@@ -28,7 +28,7 @@ function Header({ filterNewsRef }: { filterNewsRef: React.RefObject<HTMLDivEleme
     if (filterNewsRef.current) {
       setTimeout(() => {
         filterNewsRef.current?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      }, 500);
     }
   };
 
