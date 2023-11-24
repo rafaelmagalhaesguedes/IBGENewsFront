@@ -73,7 +73,7 @@ describe('Header component testing', () => {
       </NewsContext.Provider>,
     );
 
-    fireEvent.keyPress(getByTestId(SEARCH_INPUT), { key: 'Enter', code: 13, charCode: 13 });
+    fireEvent.keyDown(getByTestId(SEARCH_INPUT), { key: 'Enter', code: 13, charCode: 13 });
 
     expect(filterByStringMock).toHaveBeenCalled();
   });
