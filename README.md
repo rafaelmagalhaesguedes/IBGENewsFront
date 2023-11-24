@@ -32,7 +32,7 @@ Inicie o aplicativo em modo de desenvolvimento:
 
 ### Mobile
 
-![Mobile Screen](./public/mobile-screen.png)
+![Mobile Screen](./public/screen-mobile.png)
 
 # Funcionalidades
 
@@ -58,7 +58,7 @@ Inicie o aplicativo em modo de desenvolvimento:
 
 # Cobertura de testes
 
-![Example Image](./public/cobertura-de-testes.png)
+![Cobertura de Testes](./public/cobertura-de-testes.png)
 
 # Tecnologias Utilizadas
 
