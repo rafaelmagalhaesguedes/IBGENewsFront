@@ -133,7 +133,7 @@ export const DateAndLink = styled.div`
   margin-top: 1rem;
 
   @media (max-width: 768px) {
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     transition: 0.3s;
     width: 100%;
     height: auto;
