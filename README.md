@@ -1,6 +1,6 @@
-# IBGE News App
+# IBGE News Front-end
 
-O IBGE News App é uma aplicação desenvolvida para promover a divulgação das informações mais recentes fornecidas pela API gratuita do Instituto Brasileiro de Geografia e Estatística (IBGE). Este aplicativo oferece uma interface intuitiva e diversas funcionalidades para facilitar o acesso e a busca por notícias relevantes.
+O IBGE News é um front-end desenvolvido para divulgação das informações mais recentes fornecidas pela API gratuita do Instituto Brasileiro de Geografia e Estatística (IBGE). Este aplicativo oferece uma interface intuitiva e diversas funcionalidades para facilitar o acesso e a busca por notícias relevantes.
 
 Link do deploy: https://app-ibge-news.vercel.app/
 
@@ -10,11 +10,11 @@ Para instalar o aplicativo, siga os seguintes passos:
 
 Clone o repositório usando o comando:
 
-  - git clone git@github.com:rafaelmagalhaesguedes/IBGENewsApp.git
+  - git clone git@github.com:rafaelmagalhaesguedes/IBGENewsFront.git
 
 Navegue até o diretório do projeto:
 
-  - cd IBGENewsApp
+  - cd IBGENewsFront
 
 Instale as dependências necessárias usando:
     
